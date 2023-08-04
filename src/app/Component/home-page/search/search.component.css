@@ -1,0 +1,44 @@
+
+*{
+  color: black;
+}
+.caption
+{
+  background-color: #00000069;
+  border-radius: 50px;
+  bottom: 17%;
+  font-size: 20px;
+}
+
+.carsol img{
+  width: 100%; height: 615px;
+}
+
+.searchFor .col-2{
+  color: orange;
+  background-color: #e2e2e2;
+  border-radius: 25px;
+  display: inline-block;
+  margin-left: 30px;
+  margin-left: 22px;
+  width: 200px;
+  cursor: pointer;
+}
+.searchFor .col-2 .fa{
+  font-size: 70px;
+}
+.searchFor .col-2 svg{
+  font-size: 70px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+.carsol[_ngcontent-ng-c3424892328] img[_ngcontent-ng-c3424892328] {
+  width: 100%;
+  height: 510px;
+}

@@ -1,0 +1,175 @@
+<div class="main-content">
+  <!-- Header -->
+  <div class="container-fluid header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 600px; background-image: url(https://images.theconversation.com/files/512871/original/file-20230301-26-ryosag.jpg?ixlib=rb-1.1.0&rect=97%2C79%2C5799%2C5817&q=45&auto=format&w=926&fit=clip); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <div style="z-index: 1;
+    position: absolute;
+    right: 42%;">
+      <img class="col-12 img" src="../assets/Images/logo.png" alt="" width="750px" height="300px">
+    </div>
+    <span class="mask bg-gradient-default opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <h2 class="display-2 text-white"> مرحبا <br>{{profileDetails.fullName}}</h2>
+          <!-- <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work
+            and manage your projects or assigned tasks</p> -->
+          <!-- <a href="#!" class="btn btn-info">Edit profile</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+        <form [formGroup]="profileForm">
+        <div class="card card-profile shadow">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a >
+                  <img [src]="imageSrc || profileDetails.personalPhoto" class="rounded-circle">
+                  <input type="te" class="form-control" id="personalPhoto" name="personalPhoto" formControlName="personalPhoto" hidden>
+                </a>
+
+              </div>
+            </div>
+          </div>
+          <!-- <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+            <div class="d-flex justify-content-between">
+              <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
+              <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+            </div>
+          </div> -->
+          <div class="card-body pt-0 pt-md-4">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-4 text-center">
+
+            </div>
+            <div class="text-center">
+              <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none">
+              <button class="btn" style="background-color: orange; color: white;" (click)="selectFile()">تغيير الصورة</button>
+              <p>{{ selectedFile ? selectedFile.name : 'No file selected' }}</p>
+
+            <br>
+              <div class="h5 font-weight-300">
+                <h3>
+                  {{profileDetails.fullName}} <br>
+               </h3>
+              </div>
+              <div class="h5 mt-4">
+               <span class="font-weight-light">{{calculateAge(profileDetails.birthDate)}} سنة</span>
+              </div>
+              <hr class="my-4">
+              <button type="submit" class="btn btn-sm btn-primary" (click)="uploadPhoto()">حفظ التغيرات</button>
+
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+
+
+      <div class="col-xl-8 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">حسابك</h3>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="profileForm">
+              <h6 class="heading-small text-muted mb-4"> المعلومات الشخصيه</h6>
+
+              <div class="pl-lg-4">
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                        <label for="fullName" class="form-control-label" >الاسم</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" formControlName="fullName">
+                    </div>
+
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="email" class="form-control-label" >عنوان البريد </label>
+                        <input type="email" class="form-control" id="email" name="email" formControlName="email" readonly>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                        <label for="address" class="form-control-label" >العنوان  </label>
+                        <input type="address" class="form-control" id="address" name="address" formControlName="address">
+                        <input type="te" class="form-control" id="personalPhoto" name="personalPhoto" formControlName="personalPhoto" hidden>
+                        <input type="date" class="form-control" id="BirthDate" name="BirthDate" formControlName="BirthDate" hidden>
+                        <!-- <img [src]="imageSrc || profileDetails.personalPhoto" class="rounded-circle"> -->
+
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                        <label for="phoneNumber" class="form-control-label" >الهاتف  </label>
+                        <input type="phoneNumber" class="form-control" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber">
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <h6 class="heading-small text-muted mb-4">معلومات التوثيق</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <!-- <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="input-visa">بطاقه الائتمان</label>
+                      <input type="number" id="input-visa" class="form-control form-control-alternative"
+                        placeholder=" رقم بطاقه الائتمان" value="{{profileDetails.creditNumber}}">
+                    </div>
+                  </div> -->
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                         <label for="nid" class="form-control-label" >الرقم القومي</label>
+                         <input type="nid" class="form-control" id="nid" name="nid" formControlName="nid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-4">
+              <div class="col-4 text-right">
+                <button type="submit" class="btn btn-sm btn-primary" (click)="UpdateProfile()">حفظ التغيرات</button>
+                &nbsp; &nbsp;
+                <!-- <button  class="btn btn-sm btn-primary">إلغاء</button> -->
+                <a *ngIf="profileDetails.nid == null" href="user/verify"  class="btn btn-sm btn-primary">توثيق الحساب</a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>

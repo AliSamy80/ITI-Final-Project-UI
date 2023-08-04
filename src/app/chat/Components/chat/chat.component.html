@@ -1,0 +1,62 @@
+<div id="container-fluid"  style="margin: 90px auto;">
+  <aside style="width: 30%;">
+    <header>
+      <input type="text" placeholder="search">
+      <br>
+    </header>
+    <ul>
+      <li *ngFor="let user of usersFromApi let i=index" (click)="selectUser(user)">
+        <img [src]="user.personalImage" width="50px" height="50px" alt="">
+        <div>
+          <h2>{{user.name}} <span># {{i+1}}</span></h2>
+        </div>
+      </li>
+    </ul>
+  </aside>
+  <main style="width: 70%; position: relative;" >
+    <header *ngIf="userID!='#'">
+      <img [src]="userHeader.personalImage" width="50px" height="50px" alt="">
+      <div>
+        <h2>{{userHeader.name}}</h2>
+        <h3>already {{chats.length}} messages</h3>
+      </div>
+    </header>
+    <ul id="chat" *ngIf="chats.length>0" #chatContainer>
+      <div *ngFor="let message of chats">
+        <div class="d-flex justify-content-start mb-2" *ngIf="message.senderID==myID">
+          <span class="p-3 rounded rightClass">
+            <span class="rightIcon"></span>{{message.message}}
+          </span>
+        </div>
+        <div class="d-flex justify-content-start mb-2 ms-5" *ngIf="message.senderID==myID">
+          <small>{{ message.dateTime | datetimeFormat: 'dd/MM/yyyy' }}</small>
+        </div>
+
+        <div class="d-flex justify-content-end mb-2 ms-5" *ngIf="message.senderID!=myID">
+          <span class="p-3 rounded leftClass">
+            <span class="leftIcon"></span>
+            <p>{{ message.message }}</p>
+          </span>
+        </div>
+
+      <div class="d-flex justify-content-end mb-2 ms-5" *ngIf="message.senderID!=myID">
+        <small>{{ message.dateTime | datetimeFormat: 'dd/MM/yyyy' }}</small>
+      </div>
+
+      </div>
+    </ul>
+    <div class="footer" style="position: fixed; bottom: 0; width: 100%; height: 11%; z-index: 10; background-color: #131313;">
+      <form (ngSubmit)="sendMessageCommand()">
+        <input placeholder="اكتب رسالتك هتا" maxlength="50" autocomplete="off" [(ngModel)]="inputChat" name="inputChat">
+        <button [disabled]="!inputChat" type="submit" class="btn btn-dark">
+          <i class="fa fa-paper-plane" style="font-size: 30px; padding-right: 10px; color: #ff8000;"></i>
+        </button>
+      </form>
+
+
+
+       </div>
+  </main>
+</div>
+
+

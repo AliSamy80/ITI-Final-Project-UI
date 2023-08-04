@@ -1,0 +1,24 @@
+
+.cat {
+  background-color: #e2e2ee;
+  border-radius: 50px;
+  border: 1px #a8a8a8 ;
+  margin-left: 6px;
+  float: right;
+  width: 16%;
+  /* height: 185px; */
+  border-style: dashed;
+}
+.cat:hover{
+  translate: 0px 10px;
+}
+.h3{
+  margin-top: 10px;
+  font-weight: 900;
+  color: #131313;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}

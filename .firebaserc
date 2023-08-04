@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chatfinalproject-2b7a0": {
+      "hosting": {
+        "ECommerce": [
+          "chatfinalproject-2b7a0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chatfinalproject-2b7a0"
+  }
+}

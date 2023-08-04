@@ -1,0 +1,68 @@
+<div class="coverImage">
+  <div class="form">
+    <form [formGroup]="verifyForm">
+
+      <div class="mb-3">
+        <input type="text" class="form-control" id="NID" name="NID" formControlName="NID" placeholder="الرقم القومي"
+          [ngClass]="{'is-invalid': verifyForm.get('NID')?.touched && verifyForm.get('NID')?.invalid}">
+        <span class="invalid-feedback" *ngIf="verifyForm.get('NID')?.touched && verifyForm.get('NID')?.invalid">
+          <span *ngIf="verifyForm.get('NID')?.errors?.['required']">من فضلك ادخل الرقم القومي الخاص بك</span>
+          <span *ngIf="verifyForm.get('NID')?.errors?.['minlength']">لا يجب ألا يقل الرقم القومي عن (14) رقم</span>
+          <span *ngIf="verifyForm.get('NID')?.errors?.['maxlength']">لا يجب أن يزيد الرقم القومي عن (14) رقم</span>
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="NIDPhoto">صورة البطاقة الأمامية</label>
+        <input type="file" class="form-control" id="NIDPhoto" (change)="onNIDSelected($event)" name="NIDPhoto" formControlName="NIDPhoto" placeholder="كلمة السر"
+          [ngClass]="{'is-invalid': verifyForm.get('NIDPhoto')?.touched && verifyForm.get('NIDPhoto')?.invalid}">
+        <span class="invalid-feedback" *ngIf="verifyForm.get('NIDPhoto')?.touched && verifyForm.get('NIDPhoto')?.invalid">
+          <span *ngIf="verifyForm.get('NIDPhoto')?.errors?.['required']">من فضلك ادخل الصورة الأمامية للبطاقة الشخصية</span>
+        </span>
+      </div>
+
+      <!-- Display the image preview -->
+      <div class="mt-2 mb-3" *ngIf="urlNID">
+        <div class="row">
+          <mat-grid-list cols="1" rowHeight="2:1">
+            <mat-grid-tile>
+              <div style="position: relative;">
+                <span class="btn-remove-image" (click)="removeNIDImage()">x</span>
+                <img [src]="urlNID" alt="" width="90%" height="150px">
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="PersonalPhoto">الصورة الشخصية</label>
+        <input type="file" class="form-control" #myInput id="PersonalPhoto" (change)="onPersonalSelected($event)" name="PersonalPhoto" formControlName="PersonalPhoto" placeholder="الصورة الشخصية"
+          [ngClass]="{'is-invalid': verifyForm.get('PersonalPhoto')?.touched && verifyForm.get('PersonalPhoto')?.invalid}">
+        <span class="invalid-feedback" *ngIf="verifyForm.get('PersonalPhoto')?.touched && verifyForm.get('PersonalPhoto')?.invalid">
+          <span *ngIf="verifyForm.get('PersonalPhoto')?.errors?.['required']">من فضلك ادخل صورتك الشخصية</span>
+        </span>
+      </div>
+
+      <!-- Display the image preview -->
+      <div class="mt-2 mb-3" *ngIf="urlPersonal">
+        <div class="row">
+          <mat-grid-list cols="1" rowHeight="2:1">
+            <mat-grid-tile>
+              <div style="position: relative;">
+                <span class="btn-remove-image" (click)="removePersonalImage()">x</span>
+                <img [src]="urlPersonal" alt="" width="90%" height="150">
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btnSubmit" [disabled]="verifyForm.invalid" (click)="uploadImages()">تسجيل</button>
+        <button type="submit" class="btnNotNow" (click)="notNow()">ليس الآن</button>
+      </div>
+
+    </form>
+  </div>
+</div>

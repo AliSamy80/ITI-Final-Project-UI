@@ -1,0 +1,135 @@
+/* .gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.main{
+  width: 450px;
+  height: 600px;
+}
+.icon{
+  position: absolute;
+}
+.thumbnail-images {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0px;
+}
+
+.thumbnail img {
+  width: 70%;
+  height:70%;
+  max-width: 100px;
+  cursor: pointer;
+  border: solid #FF8000 2px;
+}
+
+.material-icons{
+position: relative;
+top: 0px;
+}
+ */
+
+ *{
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+/* .main-image img {
+  width: 450px;
+  height: 600px;
+} */
+
+.main{
+  width: 450px;
+  height: 550px;
+}
+.icon{
+  position: absolute;
+}
+
+/* tr:hover{
+  font-size: 25px;
+  border: #FF8000 1px dotted;
+} */
+.aboutUnit{
+  border-radius: 100px;
+    width: 100%;
+    position: relative;
+    /* left: 70px; */
+    /* color: aliceblue; */
+    border: orange 2px;
+    border-style: solid;
+}
+/* .aboutUnit div{
+  width: 90%;
+  margin-right: 5%;
+} */
+
+.thumbnail-images {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0px;
+}
+
+.thumbnail img {
+  width: 70%;
+  height:70%;
+  max-width: 100px;
+  cursor: pointer;
+  border: solid #FF8000 2px;
+}
+
+.material-icons{
+position: relative;
+top: 0px;
+}
+
+.recent img{
+  width: 100%; height: 300px;
+  border-radius: 15px
+}
+.recent img:hover{
+
+  transition-property: all;
+  transition-timing-function: linear;
+  zoom: 1.2
+}
+.recent button{
+  background-color: orange;
+  border-radius: 50px;
+  margin:4%;
+  bottom:0px;
+  right:1px;
+  position: absolute;
+}
+.buildinfo{
+  position: relative;
+  bottom: 30%;
+  color: white;
+  margin: 3%;
+  background-color: #00000069;
+  border-radius: 17px;
+  padding: 20px;
+  font-size: 20px;
+}
+/* .buildinfo:hover{
+  translate: 0px 10px;
+} */
+
+.show{
+  background-color: orange;position: relative; right: 45%;
+}

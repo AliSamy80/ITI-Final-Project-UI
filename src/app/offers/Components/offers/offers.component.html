@@ -1,0 +1,63 @@
+<h1 style="text-align: right;">: العــروض</h1>
+<hr>
+
+<div class="container data" *ngIf="offers.length>0">
+<div class="alert" role="alert"  *ngFor="let offer of offers">
+  <p>
+    <span class="text-title">لقد أرسل لك : </span>
+    <span class="text-content">{{ offer.buyerName }}</span>
+    <br>
+     <span class="text-title">الرسالة : </span>
+     <span class="text-content">{{ offer.message }}</span>
+    <br>
+    <span *ngIf="offer.price>0">
+      <span class="text-title"> السعر : </span>
+      <span class="text-content" >{{ offer.price }}</span>
+    </span>
+  </p>
+  <div>
+      <button type="button" class="btn" style="background-color: #ff8000; color: white; font-weight: bold;" (click)="AddUserToFirebaseComponenet(offer)
+      "> تواصل</button>
+      <span style="margin:0 5px ;"></span>
+
+
+      <button type="button" style="background-color: #a8a8a8; color: white; font-weight: bold;" class="btn" (click)="deleteOffer(offer.id)"> الغاء</button>
+
+
+      <br>
+      <br>
+      <div *ngIf="!checkMeeting(offer.id)">
+        <form class="row g-3" #form="ngForm" (ngSubmit)="makeMeeting(offer)">
+          <div>
+            <label for="date">تحدد موعد المقابلة</label>
+            <input type="datetime-local" class="form-control" id="date" name="meetingDate" [(ngModel)]="meetinDate" placeholder="موعد المقابلة">
+          </div>
+          <button type="submit" [disabled]="meetinDate==null" style="background-color: #ff8000; color: white; font-weight: bold;" class="btn"
+          > تأكيد</button>
+          </form>
+      </div>
+
+      <div class="h5" style="font-weight: bolder;" *ngIf="checkMeeting(offer.id)">
+       موعد المعاينة :  <span style="font-size: 16px; font-weight: bold;">
+      {{getMeeting(offer.id) | dateformate: 'dd/MM/yyyy' }}
+      </span>
+      </div>
+
+  </div>
+</div>
+</div>
+<div class="container" *ngIf="offers.length<=0">
+  <div style="text-align: center; font-weight: bolder; font-size: 7rem;" class="h2">لا يوجد بيانات</div>
+  <img src="../../../../assets/Images/notFound.jpg" width="70%" height="600px" alt="" srcset="">
+</div>
+
+
+<button class="btn btn-primary" (click)="openPopup()">Open Dialoge</button>
+<div class="popup-overlay" *ngIf="isPopupVisible" (click)="closePopup()"></div>
+
+<div class="popup" [ngClass]="{ 'visible': isPopupVisible }">
+  <h2>Popup Content</h2>
+  <p>This is the popup content.</p>
+  <button (click)="closePopup()">Close</button>
+</div>
+

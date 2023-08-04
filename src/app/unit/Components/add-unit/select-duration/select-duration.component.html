@@ -1,0 +1,24 @@
+<div class="container" style="margin-top: 100px;">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">النوع</th>
+        <th scope="col">المدة</th>
+        <th scope="col">السعر</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of menuPrice; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.unittype==0?"بيع":"إيجار"}}</td>
+        <td>{{item.numberOfDays}} أيام </td>
+        <td>${{item.price}}</td>
+        <td><button (click)="makePayment(i)" class="btn btn-secondary"> شراء</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

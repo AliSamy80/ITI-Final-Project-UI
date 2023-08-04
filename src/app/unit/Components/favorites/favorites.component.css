@@ -1,0 +1,106 @@
+.container{
+  margin-top: 90px;
+}
+.container-fluid{
+  text-align: center;
+}
+.card{
+  position: relative !important;
+  padding-bottom: 0;
+  cursor: pointer;
+  margin: .3rem;
+  text-align: right !important;
+}
+a{
+  text-decoration: none;
+  color: #131313;
+}
+
+/*.map-text:hover{
+  display: block;
+} */
+.map,.heart{
+  background-color: #e2e2e2;
+  padding:0.5% 2%;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.map{
+  position: absolute;
+  top: 10px;
+  left: 13%;
+  color: #ff8000;
+}
+.map :hover+ span{
+  display: inline !important;
+  opacity: 1 !important;
+}
+.heart{
+  position: absolute;
+  top: 10px;
+  left: 3%;
+  color: #ff8000;
+}
+.name{
+  margin: -.9rem 0 -.3rem 0 ;
+  font-size: 1rem;
+  color: #131313;
+  font-weight: bolder;
+  padding: 0;
+}
+small{
+  font-size: .7rem;
+  color: #4b4b4b;
+  font-weight: bold;
+}
+.capacity{
+  margin-top: .5rem;
+}
+.room{
+  padding:0 .3rem ;
+  margin: .2rem;
+  border-radius: 20%;
+  background-color  : #e2e2e2 ;
+  position: relative;
+  color: #4b4b4b;
+}
+.room-text{
+  position: absolute;
+  top: -2px;
+  right: 2px;
+  color: #ff8000;
+}
+.v-line{
+  margin: .2rem;
+  border-right: #e2e2e2 solid .01rem;
+height: 50%;
+
+}
+.price{
+  margin: 1.1rem 0 -.5rem 0;
+}
+.price .price-text{
+  color: #131313;
+  font-weight: bold!important;
+  font-size: large;
+}
+.price .unitType{
+  color: #131313;
+  font-weight: bold!important;
+  font-size: small;
+}
+
+
+
+.btnNumber{
+  color: #131313;
+  border: none;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+

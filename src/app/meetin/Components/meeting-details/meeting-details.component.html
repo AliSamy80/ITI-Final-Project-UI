@@ -1,0 +1,128 @@
+<div class="container">
+
+  <br>
+  <div class="h2" style="font-weight: bolder;">الطرف الاخر</div>
+  <br>
+  <div class="row rounded pt-4 pe-4" style="background-color: #e2e2e2; max-height: 220px;">
+    <div class="col-2 rounded" *ngIf="userProfile.personalPhoto">
+      <img [src]="userProfile.personalPhoto" width="100%" height="65%" style="border: 2px solid orange;" alt="">
+    </div>
+    <div class="col-5">
+      <div class="h3">{{userProfile.fullName}}</div>
+      <div class="h3">{{userProfile.email}}</div>
+      <div class="h5">{{userProfile.phoneNumber}}</div>
+    </div>
+  </div>
+  <hr>
+  <br>
+
+  <div class="h2 mb-4" style="font-weight: bolder;">تفاصيل الوحدة</div>
+  <div class="row rounded pt-4 pe-4 pb-4" style="background-color: #e2e2e2;">
+    <div class="col-4 rounded" >
+      <div class="gallery-container">
+        <div class="main-image rounded">
+          <a [href]="unitDetails.location" target="_blank">
+            <img class="icon" height="30px" width="30px"
+              src="https://w7.pngwing.com/pngs/200/830/png-transparent-google-map-logo-google-maps-navigation-location-text-logo-sign.png"
+              alt="">
+          </a>
+          <img class="main" [src]="selectedImage" alt="Main Image"  />
+
+          <div class="thumbnail-images">
+            <div *ngFor="let imagePath of unitDetails.unitImagesString?.split(','); let i = index" class="thumbnail"
+              (click)="selectImage(i)">
+              <ng-container *ngIf="imagePath">
+                <!-- <img [src]="imagePath" alt="Thumbnail Image {{ i + 1 }}"> -->
+                <img [src]="'http://localhost:5219/UnitImages/'+imagePath" alt="Thumbnail Image {{ i + 1 }}">
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5">
+      <h1 style="text-align: right;">{{unitDetails.name}}</h1>
+      <h2 style="text-align: right;">{{unitDetails.address}} , {{unitDetails.city}} , {{unitDetails.governamnet}}
+      </h2>
+      <div style="text-align: right;">
+        <span class="btn  disabled" style="color:white ; background-color: #FF8000;">{{unitDetails.price |
+          currency:'EGP'}}</span>
+      </div><br>
+      <h4 style="text-align: right; ">مواصفات الوحدة</h4>
+      <hr>
+
+      <table class="table table-striped" style="text-align: center; direction: ltr;">
+        <tbody>
+          <tr class="table-warning">
+            <td>{{unitDetails.floorNumber}}</td>
+            <th scope="col">رقم الدور</th>
+
+          </tr>
+          <tr>
+            <td>{{unitDetails.area}} متر مربع</td>
+            <th scope="col">المساحة</th>
+
+          </tr>
+
+          <tr class="table-warning">
+            <td>{{ unitDetails.unitType==0?'بيع':'إيجار' }}</td>
+            <th scope="col">النوع</th>
+          </tr>
+
+          <tr>
+            <td>{{ unitDetails.priceType==0?'ثابت':'مزاد' }}</td>
+            <th scope="col">السعر</th>
+          </tr>
+
+          <tr *ngIf="unitDetails.priceType==1" class="table-warning">
+            <td>{{unitDetails.minPrice | currency:'EGP'}}</td>
+            <th scope="col">أقل سعر</th>
+
+          </tr>
+          <tr *ngIf="unitDetails.priceType==1">
+            <td>{{unitDetails.maxPrice | currency:'EGP'}}</td>
+            <th scope="col">أقصي سعر</th>
+
+          </tr>
+          <tr class="table-warning">
+            <td>{{unitDetails.capacityRoom}}</td>
+            <th scope="col">عدد الغرف</th>
+
+          </tr>
+          <tr>
+            <td>{{unitDetails.capacityBathRoom}}</td>
+            <th scope="col">عدد الحمامات</th>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <hr>
+  <br>
+  <div class="h2" style="font-weight: bolder;">تفاصيل العرض</div>
+  <br>
+
+  <div class="row rounded pt-4 pe-4 pb-4" style="background-color: #e2e2e2; max-height: 220px;">
+    <div class="col-5">
+      <div class="h3">الرسالة :  <span style="font-size: 22px; font-weight: bolder;">{{offer.message}}</span></div>
+      <div class="h3">العرض :  <span style="font-size: 22px; font-weight: bolder;">{{offer.price}}</span></div>
+    </div>
+  </div>
+  <hr>
+  <br>
+
+  <div class="h2" style="font-weight: bolder;">تفاصيل المعاينة</div>
+  <br>
+  <div class="row rounded pt-4 pe-4 pb-4" style="background-color: #e2e2e2; max-height: 220px;">
+    <div>
+      <div class="h3">تم انشاء طلب المعاينة بتاريخ :  <span style="font-size: 22px; font-weight: bolder;">{{ meeting.date | meetingDate: 'dd/MM/yyyy' }}</span></div>
+      <div class="h3">الموعد المحدد للمعاينة :  <span style="font-size: 22px; font-weight: bolder;">{{meeting.meeingDate | meetingDate: 'dd/MM/yyyy'}}</span></div>
+    </div>
+  </div>
+
+<br><br>

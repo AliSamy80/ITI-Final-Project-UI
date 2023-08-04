@@ -1,0 +1,294 @@
+<app-search *ngIf="token"></app-search>
+
+<!-- /////////////////////////SLider//////// -->
+
+<div id="carouselExampleCaptions" class="carousel slide" *ngIf="!token">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner ">
+    <div class="carousel-item active carsol">
+      <img src="../assets/Images/1.jpg" class="d-block w-100" alt="...">
+
+      <div class="carousel-caption d-block caption">
+        <h2 style="font-size: 35px;">مرحبا بك في سكني</h2>
+        <p>سكني مكانك المناسب لو بتدور علي أي نوع من أنواع العقارات لايجار
+          او للبيع وباسعار تناسبك وكمان ضمان لكل حقوقك
+          علي سكني الكل مستفيد</p>
+        <button class="btn btn-outline-light" style="background-color: orange;" type="submit">
+          <a href="/user/register" style="color: white;">
+            أنضم لمجتمعنا
+          </a>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="carousel-item carsol">
+      <img src="../assets/Images/2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-block caption">
+        <h2 style="font-size: 35px;">مرحبا بك في سكني</h2>
+        <p>سكني مكانك المناسب لو بتدور علي أي نوع من أنواع العقارات لايجار
+          او للبيع وباسعار تناسبك وكمان ضمان لكل حقوقك
+          علي سكني الكل مستفيد</p>
+        <button class="btn btn-outline-light" style="background-color: orange;" type="submit"><a href="/user/register"
+            style="color: white;">
+            أنضم لمجتمعنا
+          </a> </button>
+
+      </div>
+    </div>
+    <div class="carousel-item carsol">
+      <img src="https://hensleyhomes.com/wp-content/uploads/2019/04/IMG_5668-1024x683.jpg" class="d-block w-100"
+        alt="...">
+      <div class="carousel-caption d-block caption">
+        <h2 style="font-size: 35px;">مرحبا بك في سكني</h2>
+        <p>سكني مكانك المناسب لو بتدور علي أي نوع من أنواع العقارات لايجار
+          او للبيع وباسعار تناسبك وكمان ضمان لكل حقوقك
+          علي سكني الكل مستفيد</p>
+        <button class="btn btn-outline-light" style="background-color: orange;" type="submit">
+          <a href="/user/register" style="color: white;">
+            أنضم لمجتمعنا
+          </a>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<br>
+
+
+<!-- /////////////////////////catogory//////// -->
+
+<app-category></app-category>
+
+
+<br>
+<hr class="container" style="margin:0 auto 2rem; border: solid .005rem">
+
+
+
+<!-- ///////////////////////////City///////////////////// -->
+<app-city></app-city>
+<hr class="container" style="margin:0 auto 2rem; border: solid .005rem">
+
+
+<!-- card -->
+
+<app-unit-card></app-unit-card>
+
+<hr class="container" style="margin:0 auto 2rem; border: solid .005rem">
+<br>
+
+<div class="container" style=" text-align: center; background-color: #e2e2e2; border-radius:20px ; width: 75%;">
+  <div class="row">
+    <div class="col-6 how">
+      <br>
+      <img src="https://hensleyhomes.com/wp-content/uploads/2022/04/IMG_6215-1-1536x1040.jpg" alt="">
+      <h3> بيع منزل</h3>
+      <p> تملك منزل وتريد بيعه؟ ضع
+        قائمة بممتلكاتك هنا وابحث عن
+        المشتري المثالي في لمح البصر</p>
+      <a class="btn btn-outline-light" style="background-color: orange !important; border-radius: 50px"
+        href="/unit/addUnit">ابدا التسجيل
+      </a>
+      <br>
+      <br>
+    </div>
+
+    <div class="col-6 how">
+      <br>
+      <img src="https://hensleyhomes.com/wp-content/uploads/2022/04/IMG_6215-1-1536x1040.jpg" alt="">
+      <h3>اقتني منزل</h3>
+      <p> تبحث عن منزل جديد؟ ابحث عن
+        العقارات والمركبات ، قارن بينها
+        واعثر على منزلك الجديد</p>
+      <button (click)="searchClick()" class="btn btn-outline-light" type="submit">ابحث الان
+      </button>
+      <br>
+      <br>
+    </div>
+
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="container" style="text-align: start; background-color: #e2e2e2; border-radius:20px ;">
+  <div class="row engaz">
+    <p class="col-2">
+      <span style="font-size: 80%;"> Happy Customer
+        +76</span>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="70" height="80" fill="currentColor" class="bi bi-person-hearts"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M11.5 1.246c.832-.855 2.913.642 0 2.566-2.913-1.924-.832-3.421 0-2.566ZM9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276ZM15 2.165c.555-.57 1.942.428 0 1.711-1.942-1.283-.555-2.281 0-1.71Z" />
+      </svg>
+    </p>
+
+    <span class="col-1 columnn"></span>
+    <p class="col-2">
+      <span style="font-size: 90%;">وحدة
+        +4000</span>
+      <br>
+      <i style="font-size: 70px; " class="fa fa-building-o" aria-hidden="true"></i>
+
+    </p>
+    <span class="col-1 columnn"></span>
+    <p class="col-2">
+      <span style="font-size: 80%;">Premium Compound
+        +200</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="70" height="80" fill="currentColor" class="bi bi-buildings-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M15 .5a.5.5 0 0 0-.724-.447l-8 4A.5.5 0 0 0 6 4.5v3.14L.342 9.526A.5.5 0 0 0 0 10v5.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14h1v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V.5ZM2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-1 2v1H2v-1h1Zm1 0h1v1H4v-1Zm9-10v1h-1V3h1ZM8 5h1v1H8V5Zm1 2v1H8V7h1ZM8 9h1v1H8V9Zm2 0h1v1h-1V9Zm-1 2v1H8v-1h1Zm1 0h1v1h-1v-1Zm3-2v1h-1V9h1Zm-1 2h1v1h-1v-1Zm-2-4h1v1h-1V7Zm3 0v1h-1V7h1Zm-2-2v1h-1V5h1Zm1 0h1v1h-1V5Z" />
+      </svg>
+    </p>
+    <span class="col-1 columnn"></span>
+    <p class="card-body col-5" style="text-align: end !important;">
+      <br>
+      <span
+        style="display: block; font-weight: bold; font-size: 25px; margin-right: 10px; text-align: start;">انجازاتنا</span>
+      <span style="display: block; font-size: 80%; margin-right: 10px; text-align: start;">
+        لديك فرصة البحث عن مجموعة كبيرة من الوحدات العقارية التي
+        تزيد عن ٤٬٠٠٠ وحدة في مصر
+        تتنوع الاختيارات بين شقق، فلل
+        توين هاوس أو أي نوع تفضله من الوحدات المتاحة، بالتأكيد ستجد
+        منزلك القادم متوفر لدنيا
+      </span>
+    </p>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div *ngIf="showMessage">
+  <div class="alert alert-warning alert-dismissible fade show " role="alert">
+    <strong>لقد تم أرسال أستفسارك بنجاح </strong>وسيتصل بك خبير في العقارات في أقرب وقت
+    <button type="button" (click)="close()" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<div class="container" style="background-color: #e2e2e2; width: 30%; border-radius: 50px;">
+  <br>
+  <fieldset>
+    <legend style="text-align: center;">
+
+      <p style="text-align: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="80" fill="orange" class="bi bi-chat-right-text"
+          viewBox="0 0 16 16">
+          <path
+            d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
+          <path
+            d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+        </svg>
+        <br>
+        <span style="font-weight: bold;">محتاج مساعدة عقارية؟
+        </span>
+        <br>
+        سيب بياناتك وهيتصل بيك خبير في العقارات في أقرب وقت
+      </p>
+
+      <form #myForm="ngForm" (ngSubmit)="submitForm()">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">الاسم </span>
+          <input type="text" name="name" [(ngModel)]="formData.name" class="form-control" placeholder=""
+            aria-label="Username" aria-describedby="basic-addon1" required minlength="8">
+          <!-- <div
+            *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)">
+
+            <div *ngIf="myForm.controls['name'].errors?.['required']">Name is required</div>
+            <div *ngIf="myForm.controls['name'].errors?.['minlength']">Name must be at least 2 characters long</div>
+          </div> -->
+          <div *ngIf="showErrors && myForm.controls['name'].invalid && (myForm.controls['name'].dirty )">
+            <div *ngIf="myForm.controls['name'].errors?.['required']">Name is required</div>
+            <div *ngIf="myForm.controls['name'].errors?.['minlength']">Name must be at least 2 characters long</div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon2">+20</span>
+          <input type="text" class="form-control" name="phone" [(ngModel)]="formData.phone" placeholder="01553057347"
+            aria-label="Recipient's username" aria-describedby="basic-addon2" required pattern="^[0-9]{11}$">
+          <div
+            *ngIf="showErrors && myForm.controls['phone'].invalid && (myForm.controls['phone'].dirty || myForm.controls['phone'].touched)">
+            <div *ngIf="myForm.controls['phone'].errors?.['required']">Phone number is required</div>
+            <div *ngIf="myForm.controls['phone'].errors?.['pattern']">Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon2">الايميل</span>
+          <input type="email" class="form-control" name="email" [(ngModel)]="formData.email" placeholder=""
+            aria-label="Recipient's username" aria-describedby="basic-addon2" required email>
+          <br>
+          <div
+            *ngIf="showErrors && myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">
+            <div *ngIf="myForm.controls['email'].errors?.['required']">Email is required</div>
+            <div *ngIf="myForm.controls['email'].errors?.['email']">Please enter a valid email address</div>
+          </div>
+        </div>
+        <div class="input-group">
+          <textarea style="height: 100px;" name="massage" [(ngModel)]="formData.massage" class="form-control"
+            placeholder=" رسالتك" aria-label="With textarea" required></textarea>
+        </div>
+        <div *ngIf="showErrors && myForm.controls['massage'].invalid && (myForm.controls['massage'].dirty )">
+          <div *ngIf="myForm.controls['name'].errors?.['required']">messge is required</div>
+
+        </div>
+        <br>
+        <!-- <button
+          type="submit">أرسال
+        </button>  -->
+        <input type="submit" class="btn btn-outline-light"
+          style="background-color: orange; border-radius: 20px;  width: 110px;" value="أرسال">
+        <br>
+        <br>
+
+      </form>
+
+      <!-- <c-alert color="warning">A simple warning alert—check it out!</c-alert> -->
+    </legend>
+  </fieldset>
+</div>
+
+<br>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

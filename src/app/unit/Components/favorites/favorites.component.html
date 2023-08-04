@@ -1,0 +1,66 @@
+<div class="container" style="text-align: start;margin-right: 10%;">
+  <h2 style=" font-weight: bolder; text-align: start;">أحدث الوحدات</h2>
+  <div class="card col-3" style="width: 18rem; display: inline-flex;"
+    *ngFor="let unit of unitCard">
+    <a href="unit/det/{{unit.id}}">
+      <img class="card-img-top" height="200px" [src]="unit.coverImageString" alt="Card image cap">
+
+    </a>
+
+    <div class="card-body">
+      <a [href]="['unit/det/'+unit.id]">
+        <p class="card-title name">{{unit.name}}</p>
+        <small style="font-size: 20px;">{{unit.city}} ,{{unit.governamnet}}</small><br>
+        <span class="unitType">{{unit.unitType==0?"بيع":"إيجار"}}</span><br>
+        <div class="capacity">
+          <span class="room">
+            <small class="room-text">{{unit.capacityRoom}}</small>
+            <i class="fa fa-bed"></i>
+          </span>
+          <span class="room">
+            <small class="room-text">{{unit.capacityBathRoom}}</small>
+            <i class="fa fa-bath"></i>
+          </span>
+          <span class="v-line"></span>
+          <span style="margin: .3rem; font-weight: 900;">
+            {{unit.area}}
+            <small class="">م<sup>2</sup></small>
+          </span>
+        </div>
+        <div class="price">
+          <span class="badge rounded-pill price-text">{{unit.price | currency:' '}} <span
+              style="color: orange; font-size: small;"> EGP</span></span>
+        </div>
+      </a>
+
+      <span class="heart rounded" (click)="togleFavorites(unit.id!)"> <i
+          [ngClass]="checkFavorite(unit.id)?'fa fa-heart':'fa fa-heart-o'"></i></span>
+
+      <span class="map rounded">
+        <i class="fa fa-map"></i>
+        <span class=".map-text" style="padding: 0 5px; display: none; opacity: 0;
+      transition: opacity 0.3s ease;">الخريطة</span>
+
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<div class="mt-8 py-5 flex justify-content items-center" style="text-align: center;">
+  <div>
+    <button class="btn btn-light" (click)="previousPage()" style="color: orange; font-weight: bold;" [class.disabled]="pageNumber===1">
+      <i class="fa fa-forward"></i></button>
+
+    <button class="btnNumber rounded" (click)="setPage(index)" *ngFor="let index of buttonArray"
+    [style.color]="index === pageNumber ? 'white' : 'black'"
+    [style.background-color]="index === pageNumber ? '#d8832c' : 'initial'">{{index}}</button>
+
+    <button class="btn btn-light" (click)="nextPage()" style="color: orange;" [disabled]="pageNumber * pageSize >= totalCount">
+      <i class="fa fa-backward"></i></button>
+
+  </div>
+</div>

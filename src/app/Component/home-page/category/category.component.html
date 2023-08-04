@@ -1,0 +1,25 @@
+<div class="container-fluid" style="display:block !important;">
+  <fieldset>
+    <legend style="text-align: center;">
+
+      <div class="container">
+        <h2 style=" font-weight: bolder; text-align: start;">التصنيفات</h2>
+        <div class="row searchFor" style="margin-right: 5px;">
+          <div class="col-lg-2 col-md-3 col-sm-4 cat " *ngFor="let cat of Categories" style="cursor: pointer;">
+            <a href="unit/Allun/{{cat.id}}">
+              <br>
+              <img src="http://localhost:5219/CatImages/{{cat.name}}.jpeg" class="rounded" height="75px" width="75px"
+                alt="" srcset="">
+              <br>
+              <div class="h4 mt-3" style="font-weight: bolder;">
+                {{cat.name}}
+              </div>
+              <br>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </legend>
+  </fieldset>
+</div>

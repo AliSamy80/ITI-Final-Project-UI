@@ -1,0 +1,178 @@
+*{
+ font-weight: 600;
+  /* opacity: 100%; */
+}
+.navBarSearch{
+  display: inline;
+  color: white;
+  text-align: center;
+}
+
+.navBarSearch1{
+  display: inline-flex;
+  color: white;
+  left: 1%;
+  position: absolute;
+  display: flex;
+}
+.first{
+  margin-left: 50px;
+}
+ul{
+  float: left;
+  display: inline;
+  width: 100%;
+}
+a{
+  list-style: none;
+  float: right;
+  text-align: center;
+  padding-right: 20px;
+}
+a{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.text-warning{
+  color: #D8832C !important;
+}
+.btn-outline-warning{
+  color: #D8832C !important;
+border-color: #D8832C !important;
+}
+
+.btn-outline-warning:hover{
+  background-color: #D8832C !important;
+  color: white !important;
+border-color: #D8832C !important;
+}
+nav{
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+.chat{
+position: absolute;
+top: 33px;
+left: 200px;
+height: 150px;
+width: 300px;
+background-color: #E2E2E2;
+  z-index: 12032;
+}
+
+
+*[_ngcontent-ng-c1114982685] {
+  font-size: 23px !important;
+}
+i{
+  font-size: 25px;
+}
+/* .signin{
+  position: absolute;
+  left: 15%;
+  border-radius: 30px;
+  width: 150px;
+  }
+  .heart{
+    position: absolute;
+
+    font-size: 30px;
+    cursor: pointer;
+    color: orange;
+    text-align: end;
+    right: 5%;
+
+  }
+  .searchForm
+  {
+    left: 52%;
+  position: relative;
+  }
+  .btnSerchForm{
+    font-weight: bold;
+    background-color: orange; border-bottom-right-radius: 0%; border-top-right-radius: 0%;
+
+  }
+  .inputSerchForm{
+    border: orange 1px solid; width: 40%; border-top-left-radius: 0%;border-bottom-left-radius: 0%;
+    text-align: end;
+  }
+
+  .mat-mdc-fab.mat-accent, .mat-mdc-mini-fab.mat-accent {
+    --mdc-fab-container-color: #FF9800;
+    --mdc-fab-icon-color: #fff;
+    --mat-mdc-fab-color: #fff;
+} */
+
+
+.notification{
+  /* display: flex; */
+  position: absolute;
+  overflow-y: auto; /* Enable vertical scroll */
+  overflow-x: hidden; /* Hide horizontal scroll if not needed */
+  scroll-behavior: initial ;
+  max-width: 400px;
+   max-height: 400px;
+   top: 70px;
+   left: 50px;
+   background-color: white;
+  padding: 12px 8px 0 8px;
+  min-width: 200px;
+  min-height: 200px;
+border: solid 1px #D8832C;
+  border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+border-top-right-radius: 20px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+}
+.notification-item{
+display: block;
+width: 100%;
+overflow: hidden;
+}
+.notification-item p{
+  font-size: 14px;
+  padding: 5px;
+  line-height: 1.5;
+  text-align: start;
+  margin: 0;
+}
+
+
+
+
+.meeting{
+  /* display: flex; */
+  position: absolute;
+  overflow-y: auto; /* Enable vertical scroll */
+  overflow-x: hidden; /* Hide horizontal scroll if not needed */
+  scroll-behavior: initial ;
+  max-width: 400px;
+   max-height: 400px;
+   top: 70px;
+   left: 250px;
+   background-color: white;
+  padding: 12px 8px 0 8px;
+  min-width: 200px;
+  min-height: 200px;
+border: solid 1px #D8832C;
+  border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+border-top-right-radius: 20px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+}
+.meeting-item{
+display: block;
+width: 100%;
+overflow: hidden;
+}
+.meeting-item p{
+  font-size: 14px;
+  padding: 5px;
+  line-height: 1.5;
+  text-align: start;
+  margin: 0;
+}

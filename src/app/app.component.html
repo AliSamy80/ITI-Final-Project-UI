@@ -1,0 +1,169 @@
+<nav class="navbar navbar-dark bg-dark" style="position: relative;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="homepage" style="text-align: right;">
+      <img src="../assets/Images/logo.png" alt="" height="7%" width="5%" class="d-inline-block align-text-top">
+      <span>سكني</span>
+    </a>
+
+    <div class="navBarSearch1 container-fluid" dir="ltr">
+
+      <a [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <i class="fa fa-user"></i>
+      </a>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item style="right: 48px">
+          <span class="first">
+            <a style="color: black;" *ngIf="!userName">
+              <i class="material-icons">account_circle</i>
+              <a href="user/login"><span class="ms-2" style="font-weight: 800; color: black;">تسجيل الدخول</span></a>
+            </a>
+
+            <a href="user/profile" *ngIf="userName ">
+              <span style="color: black;" *ngIf="!personalPhoto">
+                <i class="material-icons">account_circle</i>
+              </span>
+              <span style="color: black;" *ngIf="personalPhoto">
+                <img [src]="personalPhoto" width="25px" height="25px" style="border-radius: 50%;" alt="" srcset="">
+              </span>
+
+              <span class="d-flex justify-content-start ms-5" style="color: black;">{{userName}}</span>
+            </a>
+          </span>
+        </button>
+
+
+        <button mat-menu-item>
+          <span *ngIf="userName">
+            <a href="user/login" style="color: black;"><i class="material-icons">exit_to_app</i>تسجيل
+              الخروج</a>
+          </span>
+          <span *ngIf="!userName">
+            <i class="material-icons">account_circle</i>
+            <a href="/user/register">
+              <span class="ms-2" style="font-weight: 800; color: black;" (click)="registerClick()">أنشاء حساب </span>
+            </a>
+          </span>
+
+        </button>
+      </mat-menu>
+
+      <a (click)="toggileNotification()">
+        <i class="fa fa-bell" style="position: relative;">
+          <span *ngIf="count>0" class="rounded-circle" style="position: absolute; top: -10px; right: -3px; background-color: red; font-size: 13px; padding: 3px 5px;">{{count}}</span>
+        </i>
+      </a>
+
+      <a (click)="toChat()"><i class="fa fa-envelope text-warning"></i></a>
+
+
+      <a href="offer/offers/'#'"><i class="fa fa-ticket"></i></a>
+
+
+      <a href="unit/favorites"><i class="fa fa-heart"></i></a>
+
+      <a href="unit/addUnit"><i class="fa fa-plus"></i></a>
+
+     <a (click)="toggileMeeting()"> <i class="fa fa-clock-o" style="position: relative;">
+      <span *ngIf="meetingCount>0" class="rounded-circle" style="position: absolute; top: -10px; right: -3px; background-color: red; font-size: 13px; padding: 3px 5px;">{{meetingCount}}</span>
+     </i></a>
+
+    </div>
+  </div>
+
+  <div *ngIf="showNotification&&notifications.length>0" class="notification">
+    <div style="background-color: #e2e2e2; margin-bottom: 5px;" class="notifications-item" *ngFor="let item of notifications; let i=index">
+      <a [href]="item.location+'/'+notificationsId[i]" class="notification-item rounded"
+      [ngStyle]="{ 'background-color': item.starus ? 'white' : '#e2e2e2'}"
+       style="color: black; margin-bottom: 10px;">
+        <p>{{item.message}}</p>
+        <small style="float: left;margin-left: 10px; font-size: 12px; color:#ff8000 ">{{item.starus?'مقرؤة':'غير مقرؤه'}}</small>
+        <small style="float: right;margin-right: 10px; font-size: 12px; color: rgb(58, 56, 56);">{{ item.date | datetimeFormat: 'dd/MM/yyyy' }}</small>
+     <br>
+        <hr  style="border: solid .25px; color: black;">
+      </a>
+      <!-- <hr  style="border: solid;background-color: ;"> -->
+    </div>
+
+  </div>
+
+  <div *ngIf="showMeeting" class="meeting">
+    <div [ngStyle]="{ 'background-color': item.stuts? 'white' : '#e2e2e2'}" style="margin-bottom: 5px;" class="meetings-item" *ngFor="let item of meetings let i = index">
+      <a  class="meeting-item rounded"
+       style="color: black; margin-bottom: 10px;">
+        <p>{{item.meetingDetails}}</p><br> <a [href]="'meeting/meeting/'+meetingsID[i]"  style="font-size: 12px; color: blue;">التفاصيل</a>
+         <small style="float: left;margin-left: 10px; font-size: 12px; color:#ff8000 ">{{item.stuts?'مقرؤة':'غير مقرؤة'}}</small>
+        <small style="float: right;margin-right: 10px; font-size: 12px; color: rgb(58, 56, 56);">{{ item.meeingDate | datetimeFormat: 'dd/MM/yyyy' }}</small>
+        <hr  style="border: solid .25px; color: black;">
+      </a>
+      <hr  style="border: solid black 1px; background-color:black ;">
+    </div>
+
+  </div>
+</nav>
+
+
+
+<router-outlet></router-outlet>
+
+<footer *ngIf="isShowFooter" dir="ltr" class="container-fluid"
+  style="position: relative; bottom: 0; background-color: black; color: white; text-align: end;">
+  <div class="container">
+    <br>
+    <h2>
+      شركة عقارات
+    </h2>
+    <p style="color: orange;  ">
+      خدمات سكني تساعدك على بيع وشراءالعقارات بسهولة
+      <br>
+      بالاضافة إلى تزويدك بمعلومات أساسية
+      لاتخاذ واحد من أهم القرارات المالية في حياتك
+    </p>
+    <br>
+    <div>
+      <a href="">
+        <img style="width: 30px; border-radius: 50px;" src="../assets/Images/Facebook-icon.png">
+      </a>
+      &nbsp;
+      <a href="">
+        <img style="width: 30px; border-radius: 50px;" src="../assets/Images/google+.png">
+      </a>
+      &nbsp;
+      <a href="">
+        <img style="width: 30px; border-radius: 50px;" src="../assets/Images/linkedin.png">
+      </a>
+
+      &nbsp;
+
+
+      <!-- <img style="width: 50px; border-radius: 50px;"
+        src="https://winfreydesignbuild.com/site/wp-content/uploads/soft-contemporary-24-e1466783187639.jpg"> -->
+    </div>
+    <br>
+    <span style="height: 2px;
+    background-color: orange;
+    display: block;
+    padding: 0;"></span>
+
+  </div>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <a style="color: orange !important;" href="#" class="col-2">شركة عقارات</a>
+      <span class="col-1"></span>
+      <a href="#" class="col-2">الشروط والاحكام</a>
+
+      <a href="#" class="col-1"> اتصل بنا</a>
+
+      <a href="#" class="col-1"> بحث</a>
+
+      <a href="#" class="col-1"> الرئيسية</a>
+      <span class="col-1"></span>
+
+      <a style="color: orange !important;" href="#" class="col-3">©Copyright 2023-Skany</a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+</footer>

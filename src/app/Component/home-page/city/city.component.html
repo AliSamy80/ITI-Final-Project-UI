@@ -1,0 +1,38 @@
+<div class="container">
+  <fieldset>
+    <legend style="text-align: center;">
+      <h2 style=" font-weight: bolder; text-align: start;">أهم المناطق </h2>
+      <br>
+      <div class="row import">
+        <div *ngFor="let product of city"
+          class="col-4 cc">
+          <a href="/unit/Allunits/{{product.cityName}}"> <img [src]="product.cityImage" alt="..."></a>
+          <div class="buildinfo">
+            <h3> <a href="/unit/Allunits/{{product.cityName}}" style="color: white;"> {{product.cityName}}</a></h3>
+            <p> {{product.count }} وحدة</p>
+          </div>
+        </div>
+      </div>
+
+    </legend>
+
+  </fieldset>
+</div>
+
+
+<div class="mt-8 py-5 flex justify-content items-center" style="text-align: center;">
+  <div>
+    <button class="btn btn-light" (click)="previousPage()" style="color: orange; font-weight: bold;"
+      [class.disabled]="pageNumber===1">
+      <i class="fa fa-forward"></i></button>
+
+    <button class="btnNumber rounded" (click)="setPage(index)" *ngFor="let index of buttonArray"
+      [style.color]="index === pageNumber ? 'white' : 'black'"
+      [style.background-color]="index === pageNumber ? '#d8832c' : 'initial'">{{index}}</button>
+
+    <button class="btn btn-light" (click)="nextPage()" style="color: orange;"
+      [disabled]="pageNumber * pageSize >= totalCount">
+      <i class="fa fa-backward"></i></button>
+
+  </div>
+</div>

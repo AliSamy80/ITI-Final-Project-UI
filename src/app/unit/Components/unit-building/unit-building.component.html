@@ -1,0 +1,159 @@
+<div class="container" *ngIf="area">
+  <fieldset>
+    <legend style="text-align: end;">
+
+      <br>
+      <br>
+      <br>
+      <div class="container" style="text-align: start;margin-right: 10%;">
+
+        <h2 style=" font-weight: bolder; text-align: start;"> {{title}}</h2>
+        <div class="card co1-3" style="width: 18rem; display: inline-flex;" *ngFor="let unit of UnitBuildBysearch">
+
+          <a href="unit/det/{{unit.id}}">
+            <img class="card-img-top" height="200px" [src]="unit.coverImageString" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <a [href]="['unit/det/'+unit.id]">
+              <p class="card-title name">{{unit.name}}</p>
+              <small>{{unit.city}} ,{{unit.governamnet}}</small><br>
+              <span class="unitType">{{unit.unitType==0?"بيع":"إيجار"}}</span><br>
+              <div class="capacity">
+                <span class="room">
+                  <small class="room-text">{{unit.capacityRoom}}</small>
+                  <i class="fa fa-bed"></i>
+                </span>
+                <span class="room">
+                  <small class="room-text">{{unit.capacityBathRoom}}</small>
+                  <i class="fa fa-bath"></i>
+                </span>
+                <span class="v-line"></span>
+                <span style="margin: .3rem; font-weight: 900;">
+                  {{unit.area}}
+                  <small class="">م<sup>2</sup></small>
+                </span>
+              </div>
+              <div class="price">
+                <span class="badge rounded-pill price-text">{{unit.price | currency:' '}} <span
+                    style="color: orange; font-size: small;"> EGP</span></span>
+              </div>
+            </a>
+
+            <span class="heart rounded" (click)="togleFavorites(unit.id!)"> <i
+                [ngClass]="checkFavorite(unit.id)?'fa fa-heart':'fa fa-heart-o'"></i></span>
+
+            <span class="map rounded">
+              <i class="fa fa-map"></i>
+              <span class=".map-text" style="padding: 0 5px; display: none; opacity: 0;
+            transition: opacity 0.3s ease;">الخريطة</span>
+
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+      <div class="mt-8 py-5 flex justify-content items-center" style="text-align: center;">
+      </div>
+
+
+
+
+
+    </legend>
+
+
+  </fieldset>
+
+</div>
+
+<!-- ////////////////////city///////// -->
+
+<div *ngIf="cityonlyy">
+  <div class="container-fluid" *ngIf="onecity">
+    <fieldset>
+      <legend style="text-align: center;">
+
+        <div class="row">
+          <div>
+            <a href="/unit/Allunits/{{onecity.cityName}}"> <img src="{{onecity.cityImage}}" alt="..." width="100%"
+                height="400"></a>
+            <div class="buildinfo">
+              <h2> <a href="/unit/Allunits/{{onecity.cityName}}" style="color: white; font-weight: 600;"> جد بيتك
+                  المستقبلي
+                  في محافظة {{onecity.cityName}}</a></h2>
+            </div>
+          </div>
+        </div>
+      </legend>
+    </fieldset>
+  </div>
+
+  <fieldset>
+    <legend style="text-align: end;">
+      <div class="container" style="text-align: start;margin-right: 5%;">
+        <div class="card co1-3" style="width: 18rem; display: inline-flex;" *ngFor="let unit of UnitBuildBycity">
+          <img class="card-img-top" height="200px" [src]="unit.coverImageString" alt="Card image cap">
+
+          <div class="card-body">
+            <a [href]="['unit/det/'+unit.id]">
+              <p class="card-title name">{{unit.name}}</p>
+              <small>{{unit.city}} ,{{unit.governamnet}}</small><br>
+              <span class="unitType">{{unit.unitType==0?"بيع":"إيجار"}}</span><br>
+              <div class="capacity">
+                <span class="room">
+                  <small class="room-text">{{unit.capacityRoom}}</small>
+                  <i class="fa fa-bed"></i>
+                </span>
+                <span class="room">
+                  <small class="room-text">{{unit.capacityBathRoom}}</small>
+                  <i class="fa fa-bath"></i>
+                </span>
+                <span class="v-line"></span>
+                <span style="margin: .3rem; font-weight: 900;">
+                  {{unit.area}}
+                  <small class="">م<sup>2</sup></small>
+                </span>
+              </div>
+              <div class="price">
+                <span class="badge rounded-pill price-text">{{unit.price | currency:' '}} <span
+                    style="color: orange; font-size: small;"> EGP</span></span>
+              </div>
+            </a>
+
+            <span class="heart rounded" (click)="togleFavorites(unit.id!)"> <i
+                [ngClass]="checkFavorite(unit.id)?'fa fa-heart':'fa fa-heart-o'"></i></span>
+
+            <span class="map rounded">
+              <i class="fa fa-map"></i>
+              <span class=".map-text" style="padding: 0 5px; display: none; opacity: 0;
+          transition: opacity 0.3s ease;">الخريطة</span>
+
+            </span>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="mt-8 py-5 flex justify-content items-center" style="text-align: center;">
+      </div>
+
+    </legend>
+  </fieldset>
+
+</div>
+
+<!-- /////////////////////category///////////////////// -->
+
+
+<div class="container" *ngIf="UnitBuildBycity.length==0 && UnitBuildBysearch.length==0">
+  <br>
+  <br>
+  <br>
+  <div style=" text-align: center; font-weight: bolder; font-size: 7rem;" class="h2">لا يوجد بيانات</div>
+  <img src="../../../../assets/Images/notFound.jpg" style="margin-right: 25%;" width="50%" height="500px" alt=""
+    srcset="">
+</div>

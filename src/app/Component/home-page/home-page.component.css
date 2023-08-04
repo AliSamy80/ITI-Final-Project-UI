@@ -1,0 +1,115 @@
+
+*{
+  font-weight: 600;
+}
+.caption
+{
+  background-color: #00000069;
+  border-radius: 50px;
+  bottom: 35%;
+  font-size: 20px;
+}
+.carsol img{
+  width: 100%; height: 500px !important;
+}
+
+
+.import .col-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+  height: 359px !important;
+  cursor: pointer;
+}
+.col-4 img{
+  width: 100%; height: 300px;
+}
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+  /* height: 359px !important; */
+}
+
+.recent img{
+  width: 100%; height: 300px;
+}
+.recent button{
+  background-color: orange;
+  margin:4%;
+  bottom:0px;
+  left: 0px;
+  position: absolute;
+}
+.buildinfo{
+  position: relative; bottom: 25%; color: white; margin: 2%;
+}
+.buildinfo:hover{
+  translate: 0px 10px;
+}
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: var(--bs-border-width) solid;
+  opacity: 1.25 !important;
+  color: orange !important;
+
+}
+a {
+  color:white !important;
+  text-decoration:none !important;
+}
+
+.searchFor .col-2{
+  color: orange;
+  background-color: #e2e2e2;
+  border-radius: 25px;
+  display: inline-block;
+  margin-left: 30px;
+  margin-left: 22px;
+  width: 200px;
+  cursor: pointer;
+}
+.searchFor .col-2 .fa{
+  font-size: 70px;
+}
+.searchFor .col-2 svg{
+  font-size: 70px;
+}
+.how img{
+  width: 70%; height: 300px;  border-radius: 25px;
+}
+.how button{
+  background-color: orange; border-radius: 20px;  width: 110px;
+}
+.engaz p{
+  text-align: center;
+  font-size: 20px;
+}
+.columnn
+{
+  height: 171px;
+  background-color: orange;
+  width: 2px;
+  padding: 0;
+  margin-top: 7px;
+}
+
+/* alert */
+.show{
+  width: 70%;
+  align-items: center;
+  position: absolute;
+  margin-right: 15%;
+  background-color: #ffa500ba;
+    color: black;
+    font-weight: 600;
+    border-radius: 15px
+}
+.close{
+  border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    float: left;
+
+}

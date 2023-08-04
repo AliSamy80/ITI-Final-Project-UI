@@ -1,0 +1,159 @@
+<div class="container text-center mb-3" style="margin-top: 70px;" dir="ltr">
+  <div class="row">
+
+    <div class="col-lg-6">
+      <!-- section1 -->
+      <br>
+      <div class="gallery-container">
+        <div class="main-image">
+          <a [href]="unitDetails.location" target="_blank">
+            <img class="icon" height="30px" width="30px"
+              src="https://w7.pngwing.com/pngs/200/830/png-transparent-google-map-logo-google-maps-navigation-location-text-logo-sign.png"
+              alt="">
+          </a>
+          <img class="main" [src]="selectedImage" alt="Main Image" />
+
+          <div class="thumbnail-images">
+            <div *ngFor="let imagePath of unitDetails.unitImagesString?.split(','); let i = index" class="thumbnail"
+              (click)="selectImage(i)">
+              <ng-container *ngIf="imagePath">
+                <!-- <img [src]="imagePath" alt="Thumbnail Image {{ i + 1 }}"> -->
+                <img [src]="'http://localhost:5219/UnitImages/'+imagePath" alt="Thumbnail Image {{ i + 1 }}">
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <!-- Section 2 -->
+      <br>
+      <h1 style="text-align: right;">{{unitDetails.name}}</h1>
+      <h2 style="text-align: right;">{{unitDetails.address}} , {{unitDetails.city}} , {{unitDetails.governamnet}}
+      </h2>
+      <div style="text-align: right;">
+        <span class="btn  disabled" style="color:white ; background-color: #FF8000;">{{unitDetails.price |
+          currency:'EGP'}}</span>
+      </div><br>
+      <h4 style="text-align: right; ">مواصفات الوحدة</h4>
+      <hr>
+
+      <table class="table table-striped" style="text-align: center; direction: ltr;">
+        <tbody>
+          <tr>
+            <td>{{unitDetails.floorNumber}}</td>
+            <th scope="col">رقم الدور</th>
+
+          </tr>
+          <tr>
+            <td>{{unitDetails.area}} متر مربع</td>
+            <th scope="col">المساحة</th>
+
+          </tr>
+
+          <tr>
+            <td>{{ unitDetails.unitType==0?'بيع':'إيجار' }}</td>
+            <th scope="col">النوع</th>
+          </tr>
+
+          <tr>
+            <td>{{ unitDetails.priceType==0?'ثابت':'مزاد' }}</td>
+            <th scope="col">السعر</th>
+          </tr>
+
+          <tr *ngIf="unitDetails.priceType==1">
+            <td>{{unitDetails.minPrice | currency:'EGP'}}</td>
+            <th scope="col">أقل سعر</th>
+
+          </tr>
+          <tr *ngIf="unitDetails.priceType==1">
+            <td>{{unitDetails.maxPrice | currency:'EGP'}}</td>
+            <th scope="col">أقصي سعر</th>
+
+          </tr>
+          <tr>
+            <td>{{unitDetails.capacityRoom}}</td>
+            <th scope="col">عدد الغرف</th>
+
+          </tr>
+          <tr>
+            <td>{{unitDetails.capacityBathRoom}}</td>
+            <th scope="col">عدد الحمامات</th>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 ">
+      <br>
+      <div class="aboutUnit">
+        <br>
+        <div>
+          <h3 style="text-align: center;"> عن الوحدة </h3>
+          <p style="direction: rtl; overflow-wrap:break-word ;">
+            {{unitDetails.description}}
+          </p>
+        </div>
+        <br>
+      </div>
+      <br>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <div class="row">
+    <div class="co1-lg-2"></div>
+
+    <div class="col-lg-8 " style="width: 80%;">
+      <br>
+      <div class="jj rounded" style="border: #FF8000 1px solid; position: relative;
+      left: 12%;">
+        <br>
+
+        <h4 style="text-align: center;">إرسال عرضك</h4>
+        <form class="row g-3" #form="ngForm" (ngSubmit)="addOfferComponent()">
+          <div class="col-lg-12">
+            <textarea [(ngModel)]="addedOffer.message" required minlength="20" style="direction:rtl; width: 90%; margin-left: 5%;" id="w3review"
+              name="w3review" rows="3" cols="50" placeholder="إرسل رسالتك هنا" class="form-control"></textarea>
+          </div>
+          <br>
+          <div class=" col-3">
+            <button [disabled]="!token|| token==unitDetails.ownerID" style="background-color: #FF8000; color: white;" type="submit" class="btn mb-3">
+              تأكيـــد</button>
+          </div>
+          <div class="col-8" *ngIf="unitDetails.priceType == 1">
+            <label for="Offer" class="visually-hidden">Offer</label>
+            <input [(ngModel)]="addedOffer.price" name="price" min="addedOffer.minPrice" required
+              style="border:solid  #FF8000;width: 90%; margin-left: 5%;" type="number" class="form-control" id="Offer"
+              placeholder="السعــر المقتــرح">
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="co1-lg-2"></div>
+
+  </div>
+
+
+</div>
+<div class="container">
+  <br>
+  <br>
+  <h1 style="text-align: right;">أقترح لك </h1>
+  <!-- <app-unit-building [cityonlyy]="cityonlyy" [title]="title" style="position: relative;
+  bottom: 80px;"></app-unit-building> -->
+
+  <app-unit-building [government]="unitDetails.governamnet" [area]="unitDetails.area" [price]="unitDetails.price" [unitID]="unitDetails.id"
+    [category]="unitDetails.categoryId" [priceType]="unitDetails.priceType" [title]="title" style="position: relative;
+    bottom: 80px;"></app-unit-building>
+</div>
